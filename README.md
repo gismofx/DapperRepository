@@ -43,3 +43,5 @@ services.AddDbConnectionInstantiatorForRepositories<MySqlConnection>(connString)
 services.AddTransient(typeof(IRepository<IdentityUser>), typeof(Repository<IdentityUser>));
 //add more here
 ```
+
+To Do: Create NuGet Package and simplify adding serivce method via extention method
