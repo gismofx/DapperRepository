@@ -1,6 +1,9 @@
 # DapperRepository
 Generic Repository Pattern For Dapper using Dapper and Dapper.Contrib
 
+### Nuget
+https://www.nuget.org/packages/TheDapperRepository/1.0.0
+
 ### Example Usage
 
 Add references
@@ -44,4 +47,4 @@ services.AddTransient(typeof(IRepository<IdentityUser>), typeof(Repository<Ident
 //add more here
 ```
 
-To Do: Create NuGet Package and simplify adding serivce method via extention method
+To Do: More examples and simplify adding serivce method via extention method
