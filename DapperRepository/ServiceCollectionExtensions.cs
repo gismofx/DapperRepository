@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Data;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace DapperRepository
 {
@@ -18,8 +19,9 @@ namespace DapperRepository
         /// <returns></returns>
         public static IServiceCollection AddDbConnectionInstantiatorForRepositories<db>(this IServiceCollection services, string connectionString) where db : IDbConnection
         {
-            return services.AddSingleton<Func<IDbConnection>>(sp =>
-                                    () => ActivatorUtilities.CreateInstance<db>(sp, connectionString));
+            services.TryAddSingleton<Func<IDbConnection>>(sp =>
+                () => ActivatorUtilities.CreateInstance<db>(sp, connectionString));
+            return services;
         }
     }
 }
