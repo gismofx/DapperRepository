@@ -2,7 +2,7 @@
 Generic Repository Pattern For Dapper using Dapper and Dapper.Contrib
 
 ### Nuget
-https://www.nuget.org/packages/TheDapperRepository/1.0.0
+https://www.nuget.org/packages/TheDapperRepository/
 
 ### Example Usage
 
