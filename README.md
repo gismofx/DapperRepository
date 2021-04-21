@@ -3,8 +3,9 @@ Generic Repository Pattern For Dapper using Dapper and Dapper.Contrib
 Simple and Easy to Setup!
 
 ### Nuget
-https://www.nuget.org/packages/TheDapperRepository/
-
+https://www.nuget.org/packages/TheDapperRepository/  
+or  
+`Install-Package TheDapperRepository -Version 1.1.0`
 ### Example Usage
 
 Add references
