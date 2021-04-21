@@ -1,8 +1,9 @@
 # DapperRepository
 Generic Repository Pattern For Dapper using Dapper and Dapper.Contrib
+Simple and Easy to Setup!
 
 ### Nuget
-https://www.nuget.org/packages/TheDapperRepository/1.0.0
+https://www.nuget.org/packages/TheDapperRepository/
 
 ### Example Usage
 
@@ -43,8 +44,6 @@ using DapperRepository;
 var connString = Configuration.GetConnectionString("DefaultConnection");
 services.AddDbConnectionInstantiatorForRepositories<MySqlConnection>(connString);
 
-services.AddTransient(typeof(IRepository<IdentityUser>), typeof(Repository<IdentityUser>));
+services.AddTransientRepository<IdentityUser>();
 //add more here
 ```
-
-To Do: More examples and simplify adding serivce method via extention method
