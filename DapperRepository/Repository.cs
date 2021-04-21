@@ -21,7 +21,6 @@ namespace DapperRepository
         //private readonly SqlConnectionConfiguration _configuration;
         private IConfiguration _configuration;
 
-        //private Func<IDbConnection> _ConnectionFactory;
         private Func<IDbConnection> _ConnectionFactory=null;
 
         public Func<IDbConnection> ConnectionFactory

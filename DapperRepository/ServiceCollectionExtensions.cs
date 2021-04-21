@@ -23,5 +23,17 @@ namespace DapperRepository
                 () => ActivatorUtilities.CreateInstance<db>(sp, connectionString));
             return services;
         }
+
+        /// <summary>
+        /// Add a Transient Repository
+        /// </summary>
+        /// <typeparam name="TPoco">POCO Class that your repository uses. Must have dapper.contrib attributes</typeparam>
+        /// <param name="services"></param>
+        /// <returns></returns>
+        public static IServiceCollection AddTransientRepository<TPoco>(this IServiceCollection services) where TPoco : class
+        {
+            services.AddTransient(typeof(IRepository<TPoco>), typeof(Repository<TPoco>));
+            return services;
+        }
     }
 }
