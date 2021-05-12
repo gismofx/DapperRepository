@@ -1,10 +1,18 @@
-# DapperRepository
+# DapperRepository  
+![NuGet](https://img.shields.io/nuget/v/TheDapperRepository?color=blue)
+![DLs](https://img.shields.io/nuget/dt/TheDapperRepository?color=brightgreen&label=NuGet%20downloads)
+![Issues](https://img.shields.io/github/issues/gismofx/DapperRepository?color=red)
+![license](https://img.shields.io/github/license/gismofx/DapperRepository?color=brightgreen)
+![stars](https://img.shields.io/github/stars/gismofx/DapperRepository?style=social)  
 Generic Repository Pattern For Dapper using Dapper and Dapper.Contrib
-Simple and Easy to Setup!
+Simple and Easy to Setup!  
+
+
 
 ### Nuget
-https://www.nuget.org/packages/TheDapperRepository/
-
+https://www.nuget.org/packages/TheDapperRepository/  
+or  
+`Install-Package TheDapperRepository -Version 1.1.0`
 ### Example Usage
 
 Add references
@@ -46,4 +54,12 @@ services.AddDbConnectionInstantiatorForRepositories<MySqlConnection>(connString)
 
 services.AddTransientRepository<IdentityUser>();
 //add more here
+```
+
+If not using dependency injection you can simply instantiate a repository with the dbconnection
+```c#
+var myEventRepo = new Repository<Event>(new SQLiteConnection(connectionString));
+//pass the DbConnection back into each method so it does not get disposed
+//Dapper will handle opening and closing of the connection
+await myEventRepo.InsertAsync(newEvent, myEventRepo.DbConnection);
 ```
