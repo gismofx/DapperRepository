@@ -7,11 +7,11 @@
     <PackageProjectUrl>https://github.com/gismofx/DapperRepository</PackageProjectUrl>
     <RepositoryUrl>https://github.com/gismofx/DapperRepository</RepositoryUrl>
     <PackageTags>C# Dapper Repository-Pattern SQL Database</PackageTags>
-    <PackageReleaseNotes>Added Extension Method 'AddTransientRepository' to simplify use!</PackageReleaseNotes>
+    <PackageReleaseNotes>Added additional constructor so you can use Repository without DI. See github repo for examples.</PackageReleaseNotes>
     <Description>Generic Repository Pattern which uses Dapper and Dapper.Contrib to make data access quick and simple! See GitHub for examples.</Description>
     <Authors>gismofx</Authors>
     <PackageId>TheDapperRepository</PackageId>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
   </PropertyGroup>
 
   <ItemGroup>

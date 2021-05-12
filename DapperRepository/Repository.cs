@@ -13,13 +13,17 @@ namespace DapperRepository
     public class Repository<TPoco> : IRepository<TPoco>
             where TPoco : class
     {
+        
+        private readonly IDbConnection _dbConnection = null;
+
         public IDbConnection DbConnection
         {
-            get { return ConnectionFactory(); }
+            get { return _ConnectionFactory is null ? _dbConnection : ConnectionFactory(); }
         }
 
+
         //private readonly SqlConnectionConfiguration _configuration;
-        private IConfiguration _configuration;
+        //private IConfiguration _configuration;
 
         private Func<IDbConnection> _ConnectionFactory=null;
 
@@ -37,6 +41,11 @@ namespace DapperRepository
         public Repository(Func<IDbConnection> connectionFactory)
         {
             ConnectionFactory = connectionFactory;
+        }
+
+        public Repository(IDbConnection connection)
+        {
+            _dbConnection = connection;
         }
 
         public async Task<bool> InsertAsync(TPoco item, IDbConnection conn = null, IDbTransaction transaction = null)
