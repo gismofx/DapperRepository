@@ -64,6 +64,22 @@ namespace DapperRepository
             return true;
         }
 
+        public async Task<bool> InsertAsync(IEnumerable<TPoco> items, IDbConnection conn = null, IDbTransaction transaction = null)
+        {
+            if (conn is null)
+            {
+                using (conn = DbConnection)
+                {
+                    await conn.InsertAsync(items);
+                }
+            }
+            else
+            {
+                await conn.InsertAsync(items, transaction);
+            }
+            return true;
+        }
+
         public async Task<bool> UpdateAsync(TPoco item, IDbConnection conn = null, IDbTransaction transaction = null)
         {
             if (conn is null)
@@ -129,7 +145,7 @@ namespace DapperRepository
             return result;
         }
 
-        public async Task<List<TPoco>> FindAllAsync(IDbConnection conn = null, IDbTransaction transaction = null)
+        public async Task<IEnumerable<TPoco>> FindAllAsync(IDbConnection conn = null, IDbTransaction transaction = null)
         {
             IEnumerable<TPoco> result;
             if (conn is null)
@@ -143,10 +159,10 @@ namespace DapperRepository
             {
                 result = await conn.GetAllAsync<TPoco>(transaction);
             }
-            return result.ToList();
+            return result;
         }
 
-        public async Task<List<TPoco>> SelectAsync(string sql, object param=null, IDbConnection conn = null, IDbTransaction transaction = null)
+        public async Task<IEnumerable<TPoco>> SelectAsync(string sql, object param=null, IDbConnection conn = null, IDbTransaction transaction = null)
         {
             IEnumerable<TPoco> result;
             if (conn is null)
@@ -160,7 +176,7 @@ namespace DapperRepository
             {
                 result = await conn.QueryAsync<TPoco>(sql, param, transaction);
             }
-            return result.ToList();
+            return result;
         }
 
         public async Task<TPoco> SelectFirstOrDefaultAsync(string sql, object param = null, IDbConnection conn = null, IDbTransaction transaction = null)
@@ -179,6 +195,5 @@ namespace DapperRepository
             }
             return result;
         }
-
     }
 }
