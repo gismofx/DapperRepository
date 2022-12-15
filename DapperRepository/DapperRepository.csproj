@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/gismofx/DapperRepository</PackageProjectUrl>
@@ -11,7 +11,7 @@
     <Description>Generic Repository Pattern which uses Dapper and Dapper.Contrib to make data access quick and simple! See GitHub for examples.</Description>
     <Authors>gismofx</Authors>
     <PackageId>TheDapperRepository</PackageId>
-    <Version>1.4.0</Version>
+    <Version>1.4.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
